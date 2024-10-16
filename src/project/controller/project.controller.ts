@@ -17,7 +17,7 @@ import {
 } from '../dto/project-list-response.dto'
 import { User } from '../../user/decorator/user.decorator'
 import { ProjectCreateUpdateDto } from '../dto/project-create-update.dto'
-import { UserPayload } from '../../auth/dto/user-payload.dto'
+import { IUser } from '../../user/types/user.types'
 
 @UseGuards(AuthGuard)
 @Controller('project')
@@ -26,7 +26,7 @@ export class ProjectController {
 
   @Get()
   async list(
-    @User() user: UserPayload,
+    @User() user: IUser,
     @Query('offset') offset: number = 0,
     @Query('limit') limit: number = 10,
     @Query('search') search: string = '',
@@ -38,7 +38,7 @@ export class ProjectController {
 
   @Post()
   async create(
-    @User() user: UserPayload,
+    @User() user: IUser,
     @Body() project: ProjectCreateUpdateDto,
   ): Promise<ProjectListItem> {
     return await this.projectService.createProject({
