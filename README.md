@@ -40,8 +40,8 @@ We store health check result in database and show it to client in dashboard.
         "limit": 10
       }
       ```
-- Prepare job that will run every 1 minutes and filters projects that has `expiredAt < NOW()`. 
-  - Update status to `expired` +
+- Prepare job that will run every 1 minutes and filters projects that has `expiredAt < NOW()`. + 
+  - Update status to `expired` 
 
 # Prepare
 
