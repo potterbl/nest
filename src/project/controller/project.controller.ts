@@ -33,7 +33,7 @@ export class ProjectController {
   ): Promise<ProjectListResponse> {
     const userId = user.sub as number
 
-    return await this.projectService.getList(userId, search, offset, limit)
+    return await this.projectService.getList(userId, search, Number(offset), Number(limit))
   }
 
   @Post()
